@@ -42,9 +42,109 @@ const restaurant = {
       `Here is your delicious pasta with ${ing1}, ${ing2}, and ${ing3}`
     );
   },
+
+  orderPizza: function (mainIngredient, ...otherIngredients) {
+    console.log(mainIngredient);
+    console.log(otherIngredients);
+  },
 };
 
+////////////////////////////////////
+/////////// REST PATTERN ///////////
+////////////////////////////////////
+
+// 1) Destructuring
+
+// SPREAD ON RIGHT HAND SIDE
+const arr = [1, 2, ...[3, 4]];
+console.log(arr);
+
+// REST IN LEFT HAND SIDE
+
+// You first use an array of variables to store the data from the actual array you are destructuring
+const [a, b, ...others] = [1, 2, 3, 4, 5];
+console.log(a, b, others);
+
+const [pizza, , risotto, ...otherFood] = [
+  ...restaurant.mainMenu,
+  ...restaurant.starterMenu,
+];
+console.log(pizza, risotto, otherFood);
+
+// Objects
+const { sat, ...weekDays } = restaurant.openingHours;
+console.log(weekDays);
+
+// 2) Functions
+const add = function (...numbers) {
+  let sum = 0;
+  for (let i = 0; i < numbers.length; i++) {
+    sum += numbers[i];
+  }
+  console.log(sum);
+};
+
+add(2, 3);
+add(5, 3, 7, 2);
+add(8, 2, 5, 3, 6);
+
+const x = [23, 5, 7];
+add(...x);
+
+restaurant.orderPizza('mushroom', 'onion', 'olives', 'spinach');
+restaurant.orderPizza('Mushrooms');
 /*
+////////////////////////////////////
+///////// SPREAD OPERATOR //////////
+////////////////////////////////////
+
+const arr = [7, 8, 9];
+const badNewArray = [1, 2, arr[0], arr[1], arr[2]];
+console.log(badNewArray);
+
+const newArr = [1, 2, ...arr];
+console.log(newArr); // [1, 2, 7, 8, 9]
+
+console.log(...newArr); // 1, 2, 7, 8, 9 - not as an array, but their individual numbers
+
+// Add a value to an array with the spread operator CREATING a new array
+const newMenu = [...restaurant.mainMenu, 'Gnocci'];
+console.log(newMenu);
+
+// Copy array
+const mainMenuCopy = [...restaurant.mainMenu];
+
+// Join arrays together
+const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+console.log(menu);
+
+// Iterables arrays, strings, maps and sets but NOT OBJECTS
+const str = 'Jonas';
+const letters = [...str, ' ', 'S'];
+console.log(letters);
+console.log(...str);
+
+///// REAL WORLD EXAMPLE ////
+// const ingredients = [
+//   prompt("Let's make pasta! Ingredient 1?"),
+//   prompt('Ingredient 2?'),
+//   prompt('Ingredient 3?'),
+// ];
+// console.log(ingredients);
+
+//restaurant.orderPasta(...ingredients);
+
+// Objects
+const newRestaurant = { foundIn: 1998, ...restaurant, founder: 'Guiseppi' };
+console.log(newRestaurant);
+
+// Shallow copies
+const restaurantCopy = { ...restaurant };
+restaurantCopy.name = 'Italian Name yo';
+console.log(restaurantCopy, restaurant);
+
+
+
 // CALLING FUNCTION WITH OBJECT AS ARGUMENT
 restaurant.orderDelivery({
   time: '22:30',
@@ -134,52 +234,3 @@ const [p = 1, q = 1, r = 1] = [8, 9];
 console.log(p, q, r);
 
 */
-
-////////////////////////////////////
-///////// SPREAD OPERATOR //////////
-////////////////////////////////////
-
-const arr = [7, 8, 9];
-const badNewArray = [1, 2, arr[0], arr[1], arr[2]];
-console.log(badNewArray);
-
-const newArr = [1, 2, ...arr];
-console.log(newArr); // [1, 2, 7, 8, 9]
-
-console.log(...newArr); // 1, 2, 7, 8, 9 - not as an array, but their individual numbers
-
-// Add a value to an array with the spread operator CREATING a new array
-const newMenu = [...restaurant.mainMenu, 'Gnocci'];
-console.log(newMenu);
-
-// Copy array
-const mainMenuCopy = [...restaurant.mainMenu];
-
-// Join arrays together
-const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
-console.log(menu);
-
-// Iterables arrays, strings, maps and sets but NOT OBJECTS
-const str = 'Jonas';
-const letters = [...str, ' ', 'S'];
-console.log(letters);
-console.log(...str);
-
-///// REAL WORLD EXAMPLE ////
-// const ingredients = [
-//   prompt("Let's make pasta! Ingredient 1?"),
-//   prompt('Ingredient 2?'),
-//   prompt('Ingredient 3?'),
-// ];
-// console.log(ingredients);
-
-//restaurant.orderPasta(...ingredients);
-
-// Objects
-const newRestaurant = { foundIn: 1998, ...restaurant, founder: 'Guiseppi' };
-console.log(newRestaurant);
-
-// Shallow copies
-const restaurantCopy = { ...restaurant };
-restaurantCopy.name = 'Italian Name yo';
-console.log(restaurantCopy, restaurant);
