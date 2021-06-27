@@ -39,9 +39,14 @@ const restaurant = {
       `Order received: ${this.starterMenu[starterIndex]}, ${this.mainMenu[mainIndex]}, will be delivered at ${time}, to ${address}`
     );
   },
+
+  orderPasta: function (ingredient1, ingredient2, ingredient3) {
+    console.log(
+      `Here is your delicious pasta with ${ingredient1}, ${ingredient2}, ${ingredient3}`
+    );
+  },
 };
 
-/*
 // Original method to assign variables from an array
 const arr = [2, 3, 4];
 const a = arr[0]; // 2
@@ -89,7 +94,6 @@ console.log(p, q, r); // r would be undefined as there is no value in the origin
 const [s = 1, t = 2, u = 3] = [10, 11];
 console.log(s, t, u); // 10, 11, 3 - 3 has been set as the default as there is no actual element within the array
 
-
 //////////////////////////////////////////
 ///////// Destructuring Objects //////////
 //////////////////////////////////////////
@@ -128,4 +132,3 @@ restaurant.orderDelivery({
   address: 'Via del Sole, 21',
   starterIndex: 2,
 });
-*/
