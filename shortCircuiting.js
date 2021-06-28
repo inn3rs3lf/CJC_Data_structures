@@ -47,6 +47,10 @@ const restaurant = {
   },
 };
 
+/////////////////////////////
+/////////  OR ||  ///////////
+/////////////////////////////
+
 // Use Any data type
 // Return any data type
 // Short-circuiting:
@@ -60,5 +64,50 @@ console.log('' || 0 || undefined || null || NaN); // NaN - all falsy
 
 console.log(undefined || 0 || '' || 'Hello' || 23 || null); // 'Hello' - it's the first truthy
 
+// Example with the restaurant object
+
+// restaurant.numGuests does not exist, so the below code is checking if it does. If it does, then assign the guests1 variable to that amount. If not, assign it to 10
 const guests1 = restaurant.numGuests ? restaurant.numGuests : 10;
 console.log(guests1);
+
+// With the short-circuiting, the ternary is not needed in its full syntax. Due to restaurant.numGuests not being available, it will assign the first truthy value, such as the above examples.
+const guests2 = restaurant.numGuests || 10;
+console.log(guests2);
+
+//NB* if the restaurant.numGuests = 0 in the object, it will default to the truthy value, as 0 is a falsy value!
+
+console.log('--------------------------');
+
+////////////////////////////
+/////////  AND &&  /////////
+////////////////////////////
+
+// As per the || or operator, the && is the opposite. It returns the first falsy value, or the last truthy
+console.log(0 && 'Jonas'); // 0
+console.log(null && ''); // null
+console.log('Hello' && NaN); // NaN
+console.log('Hello' && 'Jonas'); // 'Jonas'
+
+// Practical example
+
+// Check if the restaurant object has the orderSpinach method, if it does, order one with mushrooms and spinach
+if (restaurant.orderPizza) {
+  restaurant.orderPizza('mushrooms', 'spinach');
+}
+
+// Using short-ciruiting
+
+// If the restaurant.orderPizza method does not exist, then go ahead and order it.
+// Remember the && checks for falsy values!
+restaurant.orderPizza && restaurant.orderPizza('mushroom', 'spinach');
+
+///////////////////////////////////////////////
+///////// NULLISH COELECING OPERATOR ??  //////
+///////////////////////////////////////////////
+
+// The nullish coalescing operator (??) is a logical operator that returns its right-hand side operand when its left-hand side operand is null or undefined, and otherwise returns its left-hand side operand.
+
+console.log(null ?? undefined); // undefined
+restaurant.numGuests = 0;
+const guests = restaurant.numGuests ?? 10;
+console.log(guests); // 0
