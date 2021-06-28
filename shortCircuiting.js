@@ -46,3 +46,19 @@ const restaurant = {
     console.log(mainIngredient, otherIngredients);
   },
 };
+
+// Use Any data type
+// Return any data type
+// Short-circuiting:
+// If the first value is a truthy value, it will immediatley return it, and not even look at the second value.
+
+console.log(3 || 'Jonas'); // 3
+console.log('' || 'Jonas'); // 'Jonas'
+console.log(true || 0); // true
+console.log(undefined || null); // null - last value as they are all falsy
+console.log('' || 0 || undefined || null || NaN); // NaN - all falsy
+
+console.log(undefined || 0 || '' || 'Hello' || 23 || null); // 'Hello' - it's the first truthy
+
+const guests1 = restaurant.numGuests ? restaurant.numGuests : 10;
+console.log(guests1);
