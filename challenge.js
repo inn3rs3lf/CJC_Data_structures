@@ -54,13 +54,12 @@ const game = {
 };
 
 // 1.
-const players1 = game.players[0];
-const players2 = game.players[1];
-console.log(players1);
-console.log(players2);
+const [players1, players2] = game.players;
+console.log(players1); // first array
+console.log(players2); // second array
 
 // 2.
-const [gk, ...fieldPlayers] = [...players1, players1];
+const [gk, ...fieldPlayers] = players1;
 console.log(gk, fieldPlayers);
 
 // 3.
@@ -68,19 +67,21 @@ const allPlayers = [...players1, ...players2];
 console.log(allPlayers);
 
 // 4.
-const players1Final = [...players1];
-players1Final.push('Thiago', 'Coutinho', 'Peristic');
+const players1Final = [...players1, 'Thiago', 'Coutinho', 'Peristic'];
 console.log(players1Final);
 
 // 5.
-const team1 = 1.33;
-const draw = 3.25;
-const team2 = 6.5;
+const {
+  odds: { team1, x: draw, team2 },
+} = game;
+console.log(team1, draw, team2);
 
 // 6.
-const printGoals = function (scorer, scorers) {
-  console.log(scorer, scorers);
+const printGoals = function (...players) {
+  console.log(`${players.length} goals were scored by ${players}`);
 };
-printGoals(game.scored, game.scored.length);
+printGoals('Davies', 'Muller', 'Lewandowski', 'Kimmich');
+printGoals('Davies', 'Muller');
 
 // 7.
+team1 < team2 && console.log('team 1 is more likely to win');
