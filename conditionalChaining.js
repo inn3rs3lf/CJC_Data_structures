@@ -55,3 +55,36 @@ const restaurant = {
     console.log(mainIngredient, otherIngredients);
   },
 };
+
+if (restaurant.openingHours && restaurant.openingHours.mon)
+  console.log(restaurant.openingHours.mon.open);
+
+// This will provide an error "cannot read property 'mon' of undefined"
+// console.log(restaurant.openHours.mon.open);
+
+// With optional chaining
+// Only if the property before the ? exists, will it then provide whatever is after the ?
+// Only if openingHours.mon exists, will it provide the "open" hours
+// However, it does not, and therefore will print undefined instead of throwing an error
+console.log(restaurant.openingHours.mon?.open);
+
+// example
+const days = ['mon', 'tue', 'wed', 'thur', 'fri', 'sat', 'sun'];
+
+for (const day of days) {
+  const open = restaurant.openingHours[day]?.open ?? 'closed';
+  console.log(`On ${day} we open at ${open}`);
+}
+
+// Methods
+// We can see if the method exists, and if it doesn't we use the nullish coelescing operator for the falsy value, so we can then use the default of what's after the ??
+console.log(restaurant.order?.(0, 1) ?? 'Method does not exist');
+
+// Arrays
+const users = [
+  {
+    name: 'Jonas',
+    email: 'hello@jonas.com',
+  },
+];
+console.log(users[0]?.name ?? 'User array empty');
