@@ -46,3 +46,12 @@ const restaurant = {
     console.log(mainIngredient, otherIngredients);
   },
 };
+
+const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+
+for (const item of menu) console.log(item);
+
+// to get the index as well
+for (const [item, element] of menu.entries()) {
+  console.log(`${item + 1}: ${element}`);
+}
