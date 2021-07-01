@@ -15,6 +15,10 @@ const restaurant = {
 // What is destructuring?
 // Destructuring is breaking down arrays and objects and storing the elements into easy to use variables
 
+//////////////////////////
+// Destructuring Arrays //
+/////////////////////////
+
 // Declare an array
 const arr = [2, 3, 4];
 // Destructure it by placing the variables you wish to store the data in, on the left hand side of the assignment operator encapsulated between []. Then set that to the array you wish to destructure
@@ -52,3 +56,7 @@ console.log(h, i, j, k);
 // You can set default values if you do not know the length of the array
 const [l, m, n = 1] = [8, 9];
 console.log(l, m, n); // n would be undefined if it didn't have the default value of 1 - as there is no array value being assigned to it.
+
+/////////////////////////////
+// Destructuringf Objects //
+////////////////////////////
