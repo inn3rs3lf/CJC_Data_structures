@@ -78,7 +78,7 @@ console.log(h, i, j, k);
 // You can set default values if you do not know the length of the array
 const [l, m, n = 1] = [8, 9];
 console.log(l, m, n); // n would be undefined if it didn't have the default value of 1 - as there is no array value being assigned to it.
-*/
+
 /////////////////////////////
 // Destructuring Objects ///
 ////////////////////////////
@@ -122,3 +122,4 @@ restaurant.orderDelivery({
   mainIndex: 2,
   // starterIndex: 2, // commented out for the default value to be shown
 });
+*/
