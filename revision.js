@@ -6,12 +6,27 @@ const restaurant = {
   starterMenu: ['Focaccia', 'Bruschetta', 'Garlic-Bread', 'Caprese Salad'],
   mainMenu: ['Pizza', 'Pasta', 'Risotto'],
 
+  openingHours: {
+    thu: {
+      open: 12,
+      close: 22,
+    },
+    fri: {
+      open: 11,
+      close: 23,
+    },
+    sat: {
+      open: 0,
+      close: 24,
+    },
+  },
+
   order(starterIndex, mainIndex) {
     // starterIndex and mainIndex are the item positions in the array that are being passed as arguments
     return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
   },
 };
-
+/*
 // What is destructuring?
 // Destructuring is breaking down arrays and objects and storing the elements into easy to use variables
 
@@ -56,7 +71,33 @@ console.log(h, i, j, k);
 // You can set default values if you do not know the length of the array
 const [l, m, n = 1] = [8, 9];
 console.log(l, m, n); // n would be undefined if it didn't have the default value of 1 - as there is no array value being assigned to it.
-
+*/
 /////////////////////////////
-// Destructuringf Objects //
+// Destructuring Objects ///
 ////////////////////////////
+
+// Objects require the exact property names in order to destruture them. Unlike Arrays where you can use any variables you would like.
+// Objects also do not care as to what order the variables are placed in, as the property names correlate to that of the object itself
+const { name, openingHours, categories } = restaurant;
+
+// If you would like the variables to be different to the property names
+const {
+  name: restaurantName,
+  openingHours: hours,
+  categories: tags,
+} = restaurant;
+console.log(restaurantName, hours, tags);
+
+// You can set default values when you do not have hard coded data, such as the menu variable.
+// You can also reasign a variable, as well as set it to a default value at the same time such as starterMenu
+const { menu = [], starterMenu: starters = [] } = restaurant;
+console.log(menu, starters);
+
+// Mutating variables (Switching, swapping)
+let a = 111;
+let b = 999;
+const obj = { a: 23, b: 7, c: 14 };
+// You can't use const or let due to a and b already being assigned above. You also do not want to reassign the variable.
+// You need to wrap it in ()
+({ a, b } = obj);
+console.log(a, b);
