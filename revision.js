@@ -25,7 +25,14 @@ const restaurant = {
     // starterIndex and mainIndex are the item positions in the array that are being passed as arguments
     return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
   },
+  // You can also destructure more by placing default values within the function if the property doesn't exist
+  orderDelivery({ starterIndex = 1, mainIndex, time, address }) {
+    console.log(
+      `Order Received! ${this.starterMenu[starterIndex]}, ${this.mainMenu[mainIndex]}, at ${time}, delivered to ${address}`
+    );
+  },
 };
+
 /*
 // What is destructuring?
 // Destructuring is breaking down arrays and objects and storing the elements into easy to use variables
@@ -101,3 +108,17 @@ const obj = { a: 23, b: 7, c: 14 };
 // You need to wrap it in ()
 ({ a, b } = obj);
 console.log(a, b);
+
+// Nested Objects
+const {
+  fri: { open, close },
+} = openingHours;
+console.log(open, close);
+
+// Practical example with the object above (ln 29)
+restaurant.orderDelivery({
+  time: '23:00',
+  address: '170, 7th Road',
+  mainIndex: 2,
+  // starterIndex: 2, // commented out for the default value to be shown
+});
