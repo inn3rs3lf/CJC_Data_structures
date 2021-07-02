@@ -31,6 +31,10 @@ const restaurant = {
       `Order Received! ${this.starterMenu[starterIndex]}, ${this.mainMenu[mainIndex]}, at ${time}, delivered to ${address}`
     );
   },
+
+  orderPasta(ing1, ing2, ing3) {
+    console.log(`Here is your pasta with ${ing1}, ${ing2} and ${ing3}`);
+  },
 };
 
 /*
@@ -149,3 +153,31 @@ const mainMenuCopy = [...restaurant.mainMenu];
 // You can just unpack each array into individual elements with the spread operator for each array you will be unpacking, and place them in a new array
 const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
 console.log(menu);
+
+// The spread operator can be used on all iterables: strings, arrays, sets and maps - but NOT Objects!
+const str = 'Jonas';
+const letters = [...str];
+console.log(letters); // 'J'. 'o', 'n', 'a', 's'
+console.log(...letters); // J o n a s (Not Jonas - note the spaces)
+
+// Order pasta
+// const ingredients = [
+//   prompt('What is your first ingredient?'),
+//   prompt('What is your second ingredient?'),
+//   prompt('And your third?'),
+// ];
+// You can now expand the array and place it into each individual variable in the function (ln 35)
+// restaurant.orderPasta(...ingredients);
+
+// With objects
+// You can add new keys to an object
+const newRestaurant = { founder: 'Guiseppe', ...restaurant };
+console.log(newRestaurant);
+
+const hours = { ...restaurant.openingHours, Wed: { open: 10, close: 11 } };
+console.log(hours);
+
+// You can make shallow copies and reasign variables on the copy
+const restaurantCopy = { ...restaurant }; // copies the entire restaurant object into a new copy
+restaurantCopy.name = 'Ristorante Roma'; // we change the name of the copy
+console.log(restaurantCopy);
