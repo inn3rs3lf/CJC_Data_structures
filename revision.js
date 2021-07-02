@@ -128,8 +128,24 @@ restaurant.orderDelivery({
 //The Spread Operator //
 ////////////////////////
 
+// We use the spread operator when we need the elements of an array individually. Also when we need to pass multiple elements into a function
+// We can also only use it where we would need values seperated by commas. It does not lend itself to adding new variables, such as destructuring itself.
+
 // Combining two arrays with the spread operator
 const arr = [7, 8, 9];
 // We use the ... and the name of the first array we wish to combine with the new one - ...arr. The spread operator individually unpacks the values of the first array, and does not just throw the array in such as [1, 2, arr] which would print [1, 2, [7, 8, 9]].
 const newArr = [1, 2, ...arr];
 console.log(newArr); // 1, 2, 7, 8, 9
+
+// Restaurant example (ln 7)
+// We want to add a new item to the mainMenu
+// We can then print each individual item from the mainMenu with the spread operator, and add the new item, or items and store it in a new array
+const newMenu = [...restaurant.mainMenu, 'Gnocci'];
+console.log(newMenu); // 'Pizza', 'Pasta', 'Risotto', 'Gnocci'
+
+// Copy array
+const mainMenuCopy = [...restaurant.mainMenu];
+// Join two or more arrays together
+// You can just unpack each array into individual elements with the spread operator for each array you will be unpacking, and place them in a new array
+const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+console.log(menu);
