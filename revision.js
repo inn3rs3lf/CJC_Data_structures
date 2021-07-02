@@ -123,3 +123,13 @@ restaurant.orderDelivery({
   // starterIndex: 2, // commented out for the default value to be shown
 });
 */
+
+////////////////////////
+//The Spread Operator //
+////////////////////////
+
+// Combining two arrays with the spread operator
+const arr = [7, 8, 9];
+// We use the ... and the name of the first array we wish to combine with the new one - ...arr. The spread operator individually unpacks the values of the first array, and does not just throw the array in such as [1, 2, arr] which would print [1, 2, [7, 8, 9]].
+const newArr = [1, 2, ...arr];
+console.log(newArr); // 1, 2, 7, 8, 9
