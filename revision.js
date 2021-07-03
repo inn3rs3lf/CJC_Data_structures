@@ -185,3 +185,19 @@ console.log(restaurantCopy);
 ////////////////////////////////
 //Rest Pattern and Paramaters //
 ////////////////////////////////
+
+// Unlike the Spread Operator, the Rest Pattern packs elements into an array
+// It takes the rest of the array that is not used in the destructuring assignment
+
+// Rest syntax is on the left of the assignment operator
+
+// ...others takes 3,4,5 and stores it into an array
+const [a, b, ...others] = [1, 2, 3, 4, 5]; // [1, 2, [ 3, 4, 5]
+
+// We can use both REST and SPREAD
+// We can take the two elements from the mainMenu and store it in the variables pizza and risotto, and then take the remaining food, and place it in the array otherFood by using the REST pattern - as it is taking the rest of the items
+const [pizza, , risotto, ...otherFood] = [
+  ...restaurant.mainMenu,
+  ...restaurant.starterMenu,
+];
+console.log(pizza, risotto, otherFood);
