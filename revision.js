@@ -126,7 +126,7 @@ restaurant.orderDelivery({
   mainIndex: 2,
   // starterIndex: 2, // commented out for the default value to be shown
 });
-*/
+
 
 ////////////////////////
 //The Spread Operator //
@@ -181,3 +181,7 @@ console.log(hours);
 const restaurantCopy = { ...restaurant }; // copies the entire restaurant object into a new copy
 restaurantCopy.name = 'Ristorante Roma'; // we change the name of the copy
 console.log(restaurantCopy);
+*/
+////////////////////////////////
+//Rest Pattern and Paramaters //
+////////////////////////////////
