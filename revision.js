@@ -201,3 +201,8 @@ const [pizza, , risotto, ...otherFood] = [
   ...restaurant.starterMenu,
 ];
 console.log(pizza, risotto, otherFood);
+
+// Rest patterns in Objects
+// To store the data from an Object, you can assign the key to the variable, and it will take all the infomation in that key. Using restaurant.openingHours will take each key within openingHours, and assign it accordingly.
+const { sat, ...weekDays } = restaurant.openingHours;
+console.log(sat);
