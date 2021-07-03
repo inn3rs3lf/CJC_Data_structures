@@ -206,3 +206,21 @@ console.log(pizza, risotto, otherFood);
 // To store the data from an Object, you can assign the key to the variable, and it will take all the infomation in that key. Using restaurant.openingHours will take each key within openingHours, and assign it accordingly.
 const { sat, ...weekDays } = restaurant.openingHours;
 console.log(sat);
+
+// REST operator with Functions
+
+// Create a function that can take in any amount of arguments and add them together
+const add = function (...numbers) {
+  let sum = 0;
+  for (let i = 0; i < numbers.length; i++) {
+    sum += numbers[i];
+  }
+  console.log(sum);
+};
+add(2, 3); // 5
+add(5, 3, 7, 2); // 17
+add(8, 2, 5, 3, 2, 1, 4); // 25
+
+// We can use the spread operator to take the elements and individually parse them into the function we created above and entered into the ...numbers parameter, and added back into an array. This function then can serve both spread and rest
+const x = [23, 5, 7];
+add(...x);
