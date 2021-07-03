@@ -35,6 +35,11 @@ const restaurant = {
   orderPasta(ing1, ing2, ing3) {
     console.log(`Here is your pasta with ${ing1}, ${ing2} and ${ing3}`);
   },
+  // This method has to have at least one ingredient
+  orderPizza(mainIngredient, ...otherIngredients) {
+    console.log(mainIngredient);
+    console.log(otherIngredients);
+  },
 };
 
 /*
@@ -224,3 +229,6 @@ add(8, 2, 5, 3, 2, 1, 4); // 25
 // We can use the spread operator to take the elements and individually parse them into the function we created above and entered into the ...numbers parameter, and added back into an array. This function then can serve both spread and rest
 const x = [23, 5, 7];
 add(...x);
+
+// This takes the arguments and places them into an array if needed, collecting them together
+restaurant.orderPizza('Cheese', 'olives', 'mushroom');
