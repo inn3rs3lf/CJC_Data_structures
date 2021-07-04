@@ -52,3 +52,24 @@ const game = {
     team2: 6.5,
   },
 };
+// 1.
+const [players1, players2] = game.players;
+console.log(players1, players2);
+// 2.
+const [gk, ...fieldPlayers] = players1;
+console.log(gk, fieldPlayers);
+// 3.
+const [...allPlayers] = [...game.players];
+console.log(allPlayers);
+// 4
+const [playersFinal] = [...game.players, 'Thiago', 'Courtinho', 'Perisic'];
+console.log(playersFinal);
+// 4.
+const { team1, x: draw, team2 } = game.odds;
+console.log(team1, draw, team2);
+// 6.
+const printGoals = function (player, ...goals) {
+  console.log(player);
+};
+
+printGoals('Davies', 'Muller', 'Lewandowski');

@@ -276,10 +276,11 @@ if (restaurant.orderPizza) {
 
 // With short circuiting:
 restaurant.orderPizza && restaurant.orderPizza('Mushroom', 'Spinach');
-*/
+
 
 // With ?? Nullish coelescing operator
 // It works with nullish values: null and undefined (DOES NOT INCLUDE 0 or '') Only if the value is null or undefined will it short circuit.
 restaurant.numGuests = 0;
 const guests = restaurant.numGuests ?? 10;
 console.log(guests);
+*/
