@@ -186,7 +186,7 @@ console.log(hours);
 const restaurantCopy = { ...restaurant }; // copies the entire restaurant object into a new copy
 restaurantCopy.name = 'Ristorante Roma'; // we change the name of the copy
 console.log(restaurantCopy);
-*/
+
 ////////////////////////////////
 //Rest Pattern and Paramaters //
 ////////////////////////////////
@@ -232,3 +232,7 @@ add(...x);
 
 // This takes the arguments and places them into an array if needed, collecting them together
 restaurant.orderPizza('Cheese', 'olives', 'mushroom');
+*/
+////////////////////////////////
+//Short Circuiting && and ||  //
+////////////////////////////////
