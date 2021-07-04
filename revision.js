@@ -252,6 +252,7 @@ console.log(undefined || 0 || '' || 'Hello' || 23 || null); // 'Hello' - it is t
 
 // Practical Example
 // Let us see if there is a certain number of guests on the restaurant object. If the key (numGuests) does exist, it should print out how many, if it doesn't it should be set to a value of 10
+// NB!!! It will not work if the number of guests is 0, as 0 is falsy, we need to use the ??
 
 // if we do set the property:
 // restaurant.numGuests = 23;
@@ -262,3 +263,16 @@ console.log(guests1);
 // restaurant.numGuests will be undefined, therefore it carries on to the next value, which is 10 - which is truthy, and will therefore store that into the variable
 const guests2 = restaurant.numGuests || 10;
 console.log(guests2);
+
+// && works the opposite - it checks for the first falsy value and then short circuits. There is no need to check the remainder of the logic
+console.log(0 && 'jonas'); // 0
+console.log('Hello' && 23 && null && 'Jonas'); // null
+
+// Practical example
+// We want to see if the object has the orderPizza method attached to it. If it does, we want to order a pizza with mushrooms and spinach
+if (restaurant.orderPizza) {
+  restaurant.orderPizza('Mushrooms', 'Spinach');
+}
+
+// With short circuiting:
+restaurant.orderPizza && restaurant.orderPizza('Mushroom', 'Spinach');
