@@ -233,6 +233,32 @@ add(...x);
 // This takes the arguments and places them into an array if needed, collecting them together
 restaurant.orderPizza('Cheese', 'olives', 'mushroom');
 */
+
 ////////////////////////////////
 //Short Circuiting && and ||  //
 ////////////////////////////////
+
+// Logical operators can use any data type
+// They can return any data type
+// And they do short circuit evaluations
+
+// If the first value is a truthy value, it will return it
+console.log(3 || 'Jonas'); // 3 - it is truthy. Therefore 'Jonas isn't even evaluated
+console.log('' || 'Jonas'); // 'Jonas'
+console.log(true || 0); // true
+console.log(undefined || null); // null
+
+console.log(undefined || 0 || '' || 'Hello' || 23 || null); // 'Hello' - it is the first truthy value in the chain.
+
+// Practical Example
+// Let us see if there is a certain number of guests on the restaurant object. If the key (numGuests) does exist, it should print out how many, if it doesn't it should be set to a value of 10
+
+// if we do set the property:
+// restaurant.numGuests = 23;
+const guests1 = restaurant.numGuests ? restaurant.numGuests : 10;
+console.log(guests1);
+
+// Using the short cicruiting method:
+// restaurant.numGuests will be undefined, therefore it carries on to the next value, which is 10 - which is truthy, and will therefore store that into the variable
+const guests2 = restaurant.numGuests || 10;
+console.log(guests2);
