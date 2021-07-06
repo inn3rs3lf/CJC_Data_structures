@@ -59,17 +59,20 @@ console.log(players1, players2);
 const [gk, ...fieldPlayers] = players1;
 console.log(gk, fieldPlayers);
 // 3.
-const [...allPlayers] = [...game.players];
+const [...allPlayers] = [...players1, ...players2];
 console.log(allPlayers);
 // 4
-const [playersFinal] = [...game.players, 'Thiago', 'Courtinho', 'Perisic'];
+const [...playersFinal] = [...players1, 'Thiago', 'Courtinho', 'Perisic'];
 console.log(playersFinal);
 // 4.
 const { team1, x: draw, team2 } = game.odds;
 console.log(team1, draw, team2);
 // 6.
-const printGoals = function (player, ...goals) {
-  console.log(player);
+const printGoals = function (...player) {
+  console.log(player, player.length);
 };
+printGoals(...game.scored); //4
+// 'Davies', 'Muller', 'Lewandowski'
+// 7.
 
-printGoals('Davies', 'Muller', 'Lewandowski');
+console.log(game.odds.team1 ?? game.odds.team2 ?? game.odds.draw);
