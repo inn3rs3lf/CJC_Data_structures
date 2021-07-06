@@ -1,4 +1,20 @@
 'use strict';
+const weekdays = ['mon', 'tues', 'wed', 'thur'];
+const openingHours = {
+  [weekdays[3]]: {
+    open: 12,
+    close: 22,
+  },
+  fri: {
+    open: 11,
+    close: 23,
+  },
+  sat: {
+    open: 0,
+    close: 24,
+  },
+};
+
 const restaurant = {
   name: 'Classico Italiano',
   location: 'Via Angelo Tavanti 23, Firenze, Italy',
@@ -6,20 +22,8 @@ const restaurant = {
   starterMenu: ['Focaccia', 'Bruschetta', 'Garlic-Bread', 'Caprese Salad'],
   mainMenu: ['Pizza', 'Pasta', 'Risotto'],
 
-  openingHours: {
-    thu: {
-      open: 12,
-      close: 22,
-    },
-    fri: {
-      open: 11,
-      close: 23,
-    },
-    sat: {
-      open: 0,
-      close: 24,
-    },
-  },
+  // ES6 enhanced object literals
+  openingHours,
 
   order(starterIndex, mainIndex) {
     // starterIndex and mainIndex are the item positions in the array that are being passed as arguments
@@ -283,7 +287,7 @@ restaurant.orderPizza && restaurant.orderPizza('Mushroom', 'Spinach');
 restaurant.numGuests = 0;
 const guests = restaurant.numGuests ?? 10;
 console.log(guests);
-*/
+
 //////////////////////////
 // Looping over Arrays //
 /////////////////////////
@@ -306,3 +310,11 @@ for (const item of menu.entries()) {
 for (const [i, el] of menu.entries()) {
   console.log(`${i + 1}: ${el}`);
 }
+*/
+//////////////////////////////
+// Enhanced Object Literals //
+//////////////////////////////
+
+// You can add an object literal into another object by merely adding it to the object as a property. You do not have to assign it to anything as you had to do previously (ln 3 and ln 28)
+
+// You can now compute property names (ln 2 and 4 ). You can add, etc all in the property itself
