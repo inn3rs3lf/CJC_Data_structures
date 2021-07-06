@@ -284,3 +284,25 @@ restaurant.numGuests = 0;
 const guests = restaurant.numGuests ?? 10;
 console.log(guests);
 */
+//////////////////////////
+// Looping over Arrays //
+/////////////////////////
+
+const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+console.log(menu);
+
+for (const foodItem of menu) console.log(foodItem);
+
+// What if we want the index as well as the item?
+// for of is a bit difficult
+// You use the .entries() method
+for (const item of menu.entries()) {
+  // We add the 1 because a menu never starts at 0
+  // we use item[1] as it is the second element in the array, which is the food
+  console.log(`${item[0] + 1}: ${item[1]}`);
+}
+
+// Newer way to do it with destructuring in the for of loop itself
+for (const [i, el] of menu.entries()) {
+  console.log(`${i + 1}: ${el}`);
+}
