@@ -79,5 +79,5 @@ const printGoals = function (...player) {
 printGoals(...game.scored); //4
 // 'Davies', 'Muller', 'Lewandowski'
 // 7.
-
-console.log(game.odds.team1 ?? game.odds.team2 ?? game.odds.draw);
+// console.log(game.odds.team1 ?? game.odds.team2 ?? game.odds.draw);
+team1 < team2 && console.log('Team 1 is more likely to win');
