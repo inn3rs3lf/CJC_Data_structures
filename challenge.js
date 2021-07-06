@@ -62,10 +62,15 @@ console.log(gk, fieldPlayers);
 const [...allPlayers] = [...players1, ...players2];
 console.log(allPlayers);
 // 4
-const [...playersFinal] = [...players1, 'Thiago', 'Courtinho', 'Perisic'];
+const playersFinal = [...players1, 'Thiago', 'Courtinho', 'Perisic'];
 console.log(playersFinal);
 // 4.
-const { team1, x: draw, team2 } = game.odds;
+// const { team1, x: draw, team2 } = game.odds;
+// console.log(team1, draw, team2);
+// Destructure from a higher level:
+const {
+  odds: { team1, x: draw, team2 },
+} = game;
 console.log(team1, draw, team2);
 // 6.
 const printGoals = function (...player) {
