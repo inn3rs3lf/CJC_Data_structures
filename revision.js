@@ -327,8 +327,12 @@ for (const [i, el] of menu.entries()) {
 
 // Let's see if the restaurant is open on a Monday, and if it is, print it to the console.
 // Old way of writing:
+// We want to see if the restaurant has opening hours, and if it does, we want to see if it is open on Monday
 if (restaurant.openingHours && restaurant.openingHours.mon)
   console.log(restaurant.openingHours.mon.open); // returns an error
 
 // With optional chaining
+// Each conditional is ended with a ?.
+// We want to see if the restaurant object has openingHours? If so, is it opne on Monday? If it is, check the open times
+console.log(restaurant.openingHours?.mon?.open);
 console.log(restaurant.openingHours.mon?.open); // returns undefined
