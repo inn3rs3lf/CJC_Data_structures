@@ -319,10 +319,16 @@ for (const [i, el] of menu.entries()) {
 
 // You can now compute property names (ln 2 and 4 ). You can add, etc all in the property itself
 */
+
 ///////////////////////
 // Optional Chaining //
 ///////////////////////
+// With optional chaining, if a certain property does not exist, then undefined is returned immediately.
 
+// Let's see if the restaurant is open on a Monday, and if it is, print it to the console.
 // Old way of writing:
-if (console.log(restaurant.openingHours.mon.open))
-  console.log(restaurant.openingHours.mon.open);
+if (restaurant.openingHours && restaurant.openingHours.mon)
+  console.log(restaurant.openingHours.mon.open); // returns an error
+
+// With optional chaining
+console.log(restaurant.openingHours.mon?.open); // returns undefined
