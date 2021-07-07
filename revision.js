@@ -310,7 +310,7 @@ for (const item of menu.entries()) {
 for (const [i, el] of menu.entries()) {
   console.log(`${i + 1}: ${el}`);
 }
-*/
+
 //////////////////////////////
 // Enhanced Object Literals //
 //////////////////////////////
@@ -318,7 +318,11 @@ for (const [i, el] of menu.entries()) {
 // You can add an object literal into another object by merely adding it to the object as a property. You do not have to assign it to anything as you had to do previously (ln 3 and ln 28)
 
 // You can now compute property names (ln 2 and 4 ). You can add, etc all in the property itself
-
+*/
 ///////////////////////
 // Optional Chaining //
 ///////////////////////
+
+// Old way of writing:
+if (console.log(restaurant.openingHours.mon.open))
+  console.log(restaurant.openingHours.mon.open);
