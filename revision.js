@@ -318,7 +318,7 @@ for (const [i, el] of menu.entries()) {
 // You can add an object literal into another object by merely adding it to the object as a property. You do not have to assign it to anything as you had to do previously (ln 3 and ln 28)
 
 // You can now compute property names (ln 2 and 4 ). You can add, etc all in the property itself
-*/
+
 
 ///////////////////////
 // Optional Chaining //
@@ -336,3 +336,8 @@ if (restaurant.openingHours && restaurant.openingHours.mon)
 // We want to see if the restaurant object has openingHours? If so, is it opne on Monday? If it is, check the open times
 console.log(restaurant.openingHours?.mon?.open);
 console.log(restaurant.openingHours.mon?.open); // returns undefined
+
+*/
+/////////////////////////////////////////////////////
+// Looping over objects - keys, values and entries //
+/////////////////////////////////////////////////////
