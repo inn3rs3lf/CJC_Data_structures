@@ -361,3 +361,17 @@ for (const day of properties) {
   openStr += `${day},`;
 }
 console.log(openStr); // We are open on 3 days: thur, fri, sat,
+
+// Property Values
+const values = Object.values(openingHours);
+console.log(values); // [{open: 12, close: 22}, {open: 11, close: 23}, {open: 0, close: 24}]
+
+// You can loop over the entries, which is both the keys and the values
+const entries = Object.entries(openingHours);
+console.log(entries); // [['thur', {open: 12, close: 22}], ['fri', {open: 11, close: 23}], ['sat', {open: 0, close: 24}]]
+
+// When we loop over the object, we can destructure as we did above, and dynamically print the values we want.
+// When we destructure, we can use const [key, value] of entries to get the key and value of a property. But should you need to destructure the object further if it is nested we can destructure as follows:
+for (const [key, { open, close }] of entries) {
+  console.log(`On ${key} we open at ${open} and close at ${close}`);
+}
