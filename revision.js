@@ -341,3 +341,23 @@ console.log(restaurant.openingHours.mon?.open); // returns undefined
 /////////////////////////////////////////////////////
 // Looping over objects - keys, values and entries //
 /////////////////////////////////////////////////////
+
+// Because objects are not iterable, we can turn the object properties into an array with the Object.keys() method
+
+// Looping over property names (keys)
+// Store the array of openingHours in a constant of properties
+// Object.keys() turns the openingHours into an array of ['thur', 'fri', 'sat']
+const properties = Object.keys(openingHours);
+console.log(properties); // This returns an array.
+
+// We can now loop over the array called properties ( Object.keys(openingHours)) and print them
+for (const day of Object.keys(openingHours)) {
+  console.log(day);
+}
+
+// We can use the days dynamically as well:
+let openStr = `We are open on ${properties.length} days: `;
+for (const day of properties) {
+  openStr += `${day},`;
+}
+console.log(openStr); // We are open on 3 days: thur, fri, sat,
