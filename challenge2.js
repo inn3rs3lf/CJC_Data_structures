@@ -40,8 +40,8 @@ const game = {
 };
 
 // 1. Loop over the game.scored array and print each name to the console, along with the goal number. (example: 'Goal 1: Lewendowski')
-for (const [goal, player] of Object.entries(game.scored)) {
-  console.log(`Goal ${goal + 1}: ${player}`);
+for (const [i, player] of game.scored.entries()) {
+  console.log(`Goal ${i + 1}: ${player}`);
 }
 
 // 2. Use a loop to calculate the average odd and log it to the console (Calculate averages basically)
