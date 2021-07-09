@@ -57,9 +57,8 @@ console.log(oddTotal);
 //    Odd of a victory for Borrussia Dortmund: 6.5
 // Get the team names directly from teh game object, don't hardcode them except for "Draw"). HINT: Note how the odds and the game object have the same property names :)
 for (const [team, odd] of Object.entries(game.odds)) {
-  const { team1, team2 } = game;
-  console.log(team1, team2);
-  console.log(team, odd);
+  const teamStr = team === 'x' ? 'draw' : `victory ${game[team]}`;
+  console.log(`Odd of ${teamStr}: ${odd}`);
 }
 
 // BONUS: Create an object called 'scorers' which contains the names of the players who scored as properties, and the number of goals as the value. In this game, it will look like this:
