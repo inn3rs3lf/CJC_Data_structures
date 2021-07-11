@@ -66,7 +66,8 @@ console.log(new Set('Darryl').size); // 5
 // MAPS //
 //////////
 
-// Maps ae able to map values to keys
+// Maps are able to map values to keys - Basic assignment
+// Example: name => Classica Italiano
 
 const rest = new Map();
 rest.set('name', 'Classico Italiano');
