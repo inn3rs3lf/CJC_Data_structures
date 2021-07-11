@@ -65,3 +65,11 @@ console.log(new Set('Darryl').size); // 5
 //////////
 // MAPS //
 //////////
+
+// Maps ae able to map values to keys
+
+const rest = new Map();
+rest.set('name', 'Classico Italiano');
+// Let us state that the rest is available in two locations:
+rest.set(1, 'Firenze, Italy');
+console.log(rest.set(2, 'Lisbon, Portugal'));
