@@ -1,4 +1,5 @@
 'use strict';
+/*
 
 //////////
 // SETS //
@@ -59,3 +60,8 @@ console.log(new Set(staff).size);
 
 // You can also use it to see how many letters there are in a string, as a string is an iterable
 console.log(new Set('Darryl').size); // 5
+*/
+
+//////////
+// MAPS //
+//////////
