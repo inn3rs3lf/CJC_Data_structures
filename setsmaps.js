@@ -140,3 +140,20 @@ console.log(question);
 console.log(Object.entries(openingHours));
 const hoursMap = new Map(Object.entries(openingHours));
 console.log(hoursMap);
+
+/////////////////////////
+// ITERATING OVER MAPS //
+/////////////////////////
+
+console.log(question.get('question'));
+
+for (const [key, value] of question) {
+  // If the array key is a number then print it
+  if (typeof key === 'number') {
+    // Print the key (number) and then the value
+    console.log(`Answer ${key}: ${value}`);
+  }
+}
+const answer = Number(prompt('Your Answer'));
+console.log(answer);
+console.log(question.get(question.get('correct') === answer));
