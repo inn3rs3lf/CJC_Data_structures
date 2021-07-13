@@ -95,3 +95,18 @@ console.log(rest.get(true)); // 'We are open'
 const time = 21; // Time is 9pm
 // Check to see if the answer is a boolean of either true or false, and print the reltive answer according to the rest Map (ln 84, Ln 85)
 console.log(rest.get(time > rest.get('open') && time < rest.get('closed')));
+
+// We can see if a Map has a certain key
+console.log(rest.has('categories')); // true
+
+// We can delete a key from the Map
+rest.delete(2); // Deleted 2, 'Lisbon'
+console.log(rest);
+
+// To check the size of a Map
+console.log(rest.size);
+
+// Remove all elements
+// rest.clear();
+
+rest, set([1, 2], 'Test');
