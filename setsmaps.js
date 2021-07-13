@@ -87,6 +87,11 @@ rest
   .set(false, 'We are closed');
 
 // In order to read the values, we use the get() method:
-// You just pass in the key
+// You just pass in the key - you need to use the correct data type!
 console.log(rest.get('name')); // 'Classico Italiano'
 console.log(rest.get(true)); // 'We are open'
+
+// Practical example:
+const time = 21; // Time is 9pm
+// Check to see if the answer is a boolean of either true or false, and print the reltive answer according to the rest Map (ln 84, Ln 85)
+console.log(rest.get(time > rest.get('open') && time < rest.get('closed')));
