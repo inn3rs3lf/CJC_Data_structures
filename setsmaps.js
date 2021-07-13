@@ -1,4 +1,20 @@
 'use strict';
+
+const openingHours = {
+  // ES6 you can compute the key. Instead of manually typing in thu, you can pull it from the weekdays array
+  thur: {
+    open: 12,
+    close: 22,
+  },
+  fri: {
+    open: 11,
+    close: 23,
+  },
+  sat: {
+    open: 0, // open 24 hours
+    close: 24,
+  },
+};
 /*
 
 //////////
@@ -109,4 +125,18 @@ console.log(rest.size);
 // Remove all elements
 // rest.clear();
 
-rest, set([1, 2], 'Test');
+const question = new Map([
+  ['question', 'What is the best programming language in the world?'],
+  [1, 'C'],
+  [2, 'Java'],
+  [3, 'Javascript'],
+  ['correct', 3],
+  [true, 'Correct'],
+  [false, 'Incorrect'],
+]);
+console.log(question);
+
+// Convert objects to map
+console.log(Object.entries(openingHours));
+const hoursMap = new Map(Object.entries(openingHours));
+console.log(hoursMap);
