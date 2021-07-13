@@ -68,9 +68,25 @@ console.log(new Set('Darryl').size); // 5
 
 // Maps are able to map values to keys - Basic assignment
 // Example: name => Classica Italiano
+// In objects, keys are always strings. However, in Maps, it can be any data type
 
+// Easiest way to make a Map, is to make an empty Map, and then fill it in
 const rest = new Map();
+// Key will be name => value will be Classico Italiano
 rest.set('name', 'Classico Italiano');
 // Let us state that the rest is available in two locations:
 rest.set(1, 'Firenze, Italy');
 console.log(rest.set(2, 'Lisbon, Portugal'));
+
+// You can easily chain the different sets:
+rest
+  .set('categories', ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'])
+  .set('open', 11)
+  .set('close', 23)
+  .set(true, 'We are open')
+  .set(false, 'We are closed');
+
+// In order to read the values, we use the get() method:
+// You just pass in the key
+console.log(rest.get('name')); // 'Classico Italiano'
+console.log(rest.get(true)); // 'We are open'
