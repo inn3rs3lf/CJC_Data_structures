@@ -43,3 +43,7 @@ for (const [time, event] of gameEvents) {
 }
 
 // Another way to do the if else statement
+for (const [time, event] of gameEvents) {
+  const half = time <= 45 ? 'First' : 'Second';
+  console.log(`[${half} Half] ${time}: ${event}`);
+}
