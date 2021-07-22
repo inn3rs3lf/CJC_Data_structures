@@ -24,7 +24,8 @@ const gameEvents = new Map([
   [92, '🔶 Yellow card'],
 ]);
 
-const events = [...gameEvents];
+const events = [...new Set(gameEvents.values())];
+console.log(events);
 
 gameEvents.delete(64);
 console.log(gameEvents);
@@ -40,3 +41,5 @@ for (const [time, event] of gameEvents) {
     console.log(`[Second Half] ${time}: ${event}`);
   }
 }
+
+// Another way to do the if else statement
