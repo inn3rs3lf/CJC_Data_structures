@@ -72,5 +72,56 @@ const correctCase = function (name) {
     passengerLowerCase[0].toUpperCase() + passengerLowerCase.slice(1);
   console.log(passengerCorrectCase);
 };
-
 correctCase('peTER');
+
+// Compare Emails
+const email = 'hello@jonas.io';
+const loginEmail = '  Hello@Jonas.Io \n';
+
+const lowerEmail = loginEmail.toLowerCase();
+// trim method removes white space in a string
+const trimmedEmail = lowerEmail.trim();
+console.log(trimmedEmail);
+// Chaining methods to make it easier
+const normEmail = loginEmail.toLowerCase().trim();
+console.log(normEmail);
+// Check to see if they are the same
+console.log(email === trimmedEmail); // true
+
+// REPLACE PARTS OF STRINGS
+const priceGB = '288,97£';
+// .replace(What you want to be replaced, What you want it replaced with)
+// Replace the £ with a $, and the comma with a period
+const priceUS = priceGB.replace('£', '$').replace(',', '.');
+console.log(priceUS);
+
+// REPLACE WHOLE WORDS
+const announcement =
+  'All passengers come to boarding door 23, Boarding door 23!';
+console.log(announcement.replaceAll('door', 'gate'));
+
+// BOOLEANS
+const airplane = 'Airbus A320neo';
+// Lets us check if the string includes a word, a character or the like
+console.log(airplane.includes('A320')); // true
+console.log(airplane.includes('neo')); // true
+console.log(airplane.startsWith('Neo')); // false
+console.log(airplane.startsWith('Airbus')); // true
+
+// Check to see if the plane is part of the new airbus family
+if (airplane.startsWith('Airbus') && airplane.endsWith('neo'))
+  console.log('Part of the new airbus family');
+
+// Check if the passengers back can be checked in
+const checkBaggage = function (items) {
+  // Always convert to lowercase!
+  const baggage = items.toLowerCase();
+  if (baggage.includes('knife') || baggage.includes('gun')) {
+    console.log('You are not allowed on board');
+  } else {
+    console.log('Welcome aboard');
+  }
+};
+checkBaggage('I have a laptop, some Food and a pocket Knife');
+checkBaggage('Socks and camera');
+checkBaggage('Got some snacks and a gun for protection');
