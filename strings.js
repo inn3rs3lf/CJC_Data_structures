@@ -54,3 +54,23 @@ const checkMiddleSeat = function (seat) {
 checkMiddleSeat('11B');
 checkMiddleSeat('23C');
 checkMiddleSeat('3E');
+
+// Convert a passenger name to the correct case
+const passenger = 'jOnAS';
+// Put all characters to lower case
+const passengerLowerCase = passenger.toLowerCase();
+// Take the first letter and capitalise it
+// Then extract the remaining characters, and concatinate it
+const passengerCorrectCase =
+  passengerLowerCase[0].toUpperCase() + passengerLowerCase.slice(1);
+console.log(passengerCorrectCase);
+
+// Create a function for the above example so it can take any name as a parameter
+const correctCase = function (name) {
+  const passengerLowerCase = name.toLowerCase();
+  const passengerCorrectCase =
+    passengerLowerCase[0].toUpperCase() + passengerLowerCase.slice(1);
+  console.log(passengerCorrectCase);
+};
+
+correctCase('peTER');
