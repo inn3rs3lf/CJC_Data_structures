@@ -38,3 +38,19 @@ console.log(airline.slice(-2)); // al
 // we can start wherever, and end wherever
 // starts at the [1] index, and ends at the last (l) - 1 = a
 console.log(airline.slice(1, -1)); // AP air Portuga
+
+// Write a function that receives an airplane seat
+// Logs to the console if it is a middle seat, or not
+
+const checkMiddleSeat = function (seat) {
+  // B and E are middle seats
+  // A and F are end
+
+  const s = seat.slice(-1);
+  if (s === 'B' || s === 'E') console.log('You got the middle seat');
+  else console.log('You got lucky');
+};
+
+checkMiddleSeat('11B');
+checkMiddleSeat('23C');
+checkMiddleSeat('3E');
