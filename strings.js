@@ -135,6 +135,28 @@ console.log('Jonas Schmedtmann'.split(' ')); // ['Jonas', 'Schmedtmann']
 const [firstName, lastName] = 'Jonas Schmedtmann'.split(' ');
 
 // JOIN
-// Like the split method, the join method joins by the element passed
+// Like the split method, the join method joins with the added element passed. In the below case, it will be a space between each array index
 const newName = ['Mr.', firstName, lastName.toUpperCase()].join(' ');
 console.log(newName); // Mr. Jonas SCHMEDTMANN
+
+const capitaliseName = function (name) {
+  // Take the names, and split them into an array for each name
+  const names = name.split(' ');
+  const namesUpperCase = [];
+  // Loop over each name
+  for (const n of names) {
+    // Push the name into a new array
+    // Take the first name, and make it uppercase
+    // Join it with the remaining word (n.slice(1))
+    namesUpperCase.push(n[0].toUpperCase() + n.slice(1));
+
+    // Another method:
+    // Take the first letter and replace it with the same letter with the toUpperCase() method applied
+    namesUpperCase.push(n.replace[(n[0], n[0].toUpperCase())]);
+    // Join each word in the array with a space
+    console.log(namesUpperCase.join(' '));
+  }
+};
+
+capitaliseName('jessica ann smith davis');
+capitaliseName('darryl le roux');
