@@ -125,3 +125,16 @@ const checkBaggage = function (items) {
 checkBaggage('I have a laptop, some Food and a pocket Knife');
 checkBaggage('Socks and camera');
 checkBaggage('Got some snacks and a gun for protection');
+
+// SPLIT
+// Split allows you to split a string based on a divider
+// It stores the divisions into an array
+console.log('a+very+nice+string'.split('+'));
+console.log('Jonas Schmedtmann'.split(' ')); // ['Jonas', 'Schmedtmann']
+
+const [firstName, lastName] = 'Jonas Schmedtmann'.split(' ');
+
+// JOIN
+// Like the split method, the join method joins by the element passed
+const newName = ['Mr.', firstName, lastName.toUpperCase()].join(' ');
+console.log(newName); // Mr. Jonas SCHMEDTMANN
