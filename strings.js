@@ -160,3 +160,11 @@ const capitaliseName = function (name) {
 
 capitaliseName('jessica ann smith davis');
 capitaliseName('darryl le roux');
+
+// PADDING A STRING
+const message = 'Go to gate 23!';
+// first argument is how long you want the string to end up being
+// Second is what you want to pad the front of the string with
+console.log(message.padStart(25, '+'));
+// Yuo can also pad at the end
+console.log(message.padEnd(25, '-'));
