@@ -168,3 +168,22 @@ const message = 'Go to gate 23!';
 console.log(message.padStart(25, '+'));
 // Yuo can also pad at the end
 console.log(message.padEnd(25, '-'));
+// You can use both
+console.log('Jonas'.padStart(20, '+').padEnd(30, '+'));
+
+// Real world example
+const maskCreditCard = function (number) {
+  const str = number + ''; // converts the number into a string
+  // take the last 4 digits
+  const last = str.slice(-4);
+  return last.padStart(str.length, '*');
+};
+
+console.log(maskCreditCard(4337837726255624426));
+console.log(maskCreditCard('43378377262325234'));
+
+// REPEAT
+// Repeats the same string multiple times
+const repeatedMessage = 'Bad weather... All departures delayed... ';
+// The argument will be however many times you wish for it to be repeated
+console.log(repeatedMessage.repeat(5));
