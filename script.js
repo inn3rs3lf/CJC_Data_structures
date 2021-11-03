@@ -24,6 +24,12 @@ const restaurant = {
   order: function (starterIndex, mainIndex) {
     return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
   },
+
+  orderDelivery: function ({ starterIndex, mainIndex, time, address }) {
+    console.log(
+      `${this.starterMenu[starterIndex]}, with ${this.mainMenu[mainIndex]}, will be delievered at ${time}, at ${address}`
+    );
+  },
 };
 
 // DESTRUCTURING OBJECTS
@@ -50,6 +56,20 @@ const obj = { a: 23, b: 7, c: 14 };
 ({ a, b } = obj);
 console.log(a, b);
 
+// Nested Objects
+const {
+  // fri is an object, so use same syntax
+  fri: { open, close },
+} = openingHours;
+console.log(open, close);
+
+// Calling objects in a function parameter
+restaurant.orderDelivery({
+  time: '22:30',
+  address: 'Via del Sole, 21',
+  mainIndex: 2,
+  starterIndex: 2,
+});
 // // DESTRUCTURING ARRAYS
 // const arr = [2, 3, 4];
 // const [x, y, z] = arr;
