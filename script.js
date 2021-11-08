@@ -39,47 +39,64 @@ const restaurant = {
     console.log(mainIngredient);
     console.log(otherIngredients);
   },
+
+  leaveIngredient: function (food, rest) {
+    console.log(food);
+    console.log(rest);
+    let input = specialOrder.toString();
+    if (input === food) {
+      console.log(
+        `You have decided to leave ${food} off your pizza. So we have made one with ${rest}`
+      );
+    }
+  },
 };
+let food = ['Onion', 'Ham', 'Cheese'];
+let specialOrder = prompt(`what would you like to leave out of your pizza? 
+${food}`);
+let rest = [...food];
 
-// Rest operator
-// collects multiple elemenst and packs them into an array
-// REST is on the left hand side of the assignment operator =
-// MUST be the last element/s of an array
+restaurant.leaveIngredient(specialOrder, rest);
 
-// SPREAD
-const arr = [1, 2, ...[3, 4]];
-// REST
-const [a, b, ...others] = [1, 2, 3, 4, 5];
-console.log(a, b, others); // 1, 2, [3, 4, 5]
+// // Rest operator
+// // collects multiple elemenst and packs them into an array
+// // REST is on the left hand side of the assignment operator =
+// // MUST be the last element/s of an array
 
-const [pizza, , risotto, ...otherFood] = [
-  ...restaurant.mainMenu,
-  ...restaurant.starterMenu,
-];
-console.log(pizza, risotto, otherFood);
+// // SPREAD
+// const arr = [1, 2, ...[3, 4]];
+// // REST
+// const [a, b, ...others] = [1, 2, 3, 4, 5];
+// console.log(a, b, others); // 1, 2, [3, 4, 5]
 
-// REST on Objects
-// It will be the remainder
-const { sat, ...weekdays } = restaurant.openingHours;
-console.log(weekdays); // thur, fri
+// const [pizza, , risotto, ...otherFood] = [
+//   ...restaurant.mainMenu,
+//   ...restaurant.starterMenu,
+// ];
+// console.log(pizza, risotto, otherFood);
 
-// REST in functions
-const add = function (...numbers) {
-  let sum = 0;
-  for (let i = 0; i < numbers.length; i++) {
-    sum += numbers[i];
-  }
-  console.log(sum);
-};
-add(2, 3);
-add(5, 3, 7, 2);
-add(8, 2, 5, 3, 2, 1, 4);
+// // REST on Objects
+// // It will be the remainder
+// const { sat, ...weekdays } = restaurant.openingHours;
+// console.log(weekdays); // thur, fri
 
-const x = [23, 5, 7];
-add(...x);
+// // REST in functions
+// const add = function (...numbers) {
+//   let sum = 0;
+//   for (let i = 0; i < numbers.length; i++) {
+//     sum += numbers[i];
+//   }
+//   console.log(sum);
+// };
+// add(2, 3);
+// add(5, 3, 7, 2);
+// add(8, 2, 5, 3, 2, 1, 4);
 
-// Real-world example
-restaurant.orderPizza('mushrooms', 'ham', 'onion', 'spinach');
+// const x = [23, 5, 7];
+// add(...x);
+
+// // Real-world example
+// restaurant.orderPizza('mushrooms', 'ham', 'onion', 'spinach');
 
 // // Spread Operator
 // Unpacks elements into an array
