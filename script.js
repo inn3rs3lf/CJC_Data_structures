@@ -34,46 +34,92 @@ const restaurant = {
   orderPasta: function (ing1, ing2, ing3) {
     console.log(`Here is your pasta with ${ing1}, ${ing2} and ${ing3}`);
   },
+
+  orderPizza: function (mainIngredient, ...otherIngredients) {
+    console.log(mainIngredient);
+    console.log(otherIngredients);
+  },
 };
 
-// Spread Operator
+// Rest operator
+// collects multiple elemenst and packs them into an array
+// REST is on the left hand side of the assignment operator =
+// MUST be the last element/s of an array
 
-const arr = [7, 8, 9];
-const badNewArr = [1, 2, arr[0], arr[1], arr[2]];
+// SPREAD
+const arr = [1, 2, ...[3, 4]];
+// REST
+const [a, b, ...others] = [1, 2, 3, 4, 5];
+console.log(a, b, others); // 1, 2, [3, 4, 5]
 
-const newArr = [1, 2, ...arr];
-console.log(newArr);
+const [pizza, , risotto, ...otherFood] = [
+  ...restaurant.mainMenu,
+  ...restaurant.starterMenu,
+];
+console.log(pizza, risotto, otherFood);
 
-const newMenu = [...restaurant.mainMenu, 'Gnocci'];
-console.log(newMenu);
+// REST on Objects
+// It will be the remainder
+const { sat, ...weekdays } = restaurant.openingHours;
+console.log(weekdays); // thur, fri
 
-// Copy array
-const mainMenuCopy = [...restaurant.mainMenu];
-// Join 2 arrays or more
-const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+// REST in functions
+const add = function (...numbers) {
+  let sum = 0;
+  for (let i = 0; i < numbers.length; i++) {
+    sum += numbers[i];
+  }
+  console.log(sum);
+};
+add(2, 3);
+add(5, 3, 7, 2);
+add(8, 2, 5, 3, 2, 1, 4);
 
-// Works on all iterables
-const str = 'iterable';
-console.log(...str);
+const x = [23, 5, 7];
+add(...x);
 
 // Real-world example
-const ingredients = [
-  prompt("Let's make some pasta! Ingredient 1?"),
-  prompt('Ingredient 2?'),
-  prompt('Ingredient 3?'),
-];
-restaurant.orderPasta(...ingredients);
+restaurant.orderPizza('mushrooms', 'ham', 'onion', 'spinach');
 
-// Spread operator on Objects
-// Add a founder key to the Object as well when it was opened
-// Order does not matter
-const newRestaurant = { foundedIn: '1997', ...restaurant, founder: 'Guiseppe' };
-console.log(newRestaurant);
+// // Spread Operator
+// Unpacks elements into an array
+// SPREAD is on the right hand side of the assignment operator =
+// const arr = [7, 8, 9];
+// const badNewArr = [1, 2, arr[0], arr[1], arr[2]];
 
-const copyRestaurant = { ...restaurant };
-copyRestaurant.name = 'Chillies';
-console.log(copyRestaurant);
-console.log(restaurant);
+// const newArr = [1, 2, ...arr];
+// console.log(newArr);
+
+// const newMenu = [...restaurant.mainMenu, 'Gnocci'];
+// console.log(newMenu);
+
+// // Copy array
+// const mainMenuCopy = [...restaurant.mainMenu];
+// // Join 2 arrays or more
+// const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+
+// // Works on all iterables
+// const str = 'iterable';
+// console.log(...str);
+
+// // Real-world example
+// const ingredients = [
+//   prompt("Let's make some pasta! Ingredient 1?"),
+//   prompt('Ingredient 2?'),
+//   prompt('Ingredient 3?'),
+// ];
+// restaurant.orderPasta(...ingredients);
+
+// // Spread operator on Objects
+// // Add a founder key to the Object as well when it was opened
+// // Order does not matter
+// const newRestaurant = { foundedIn: '1997', ...restaurant, founder: 'Guiseppe' };
+// console.log(newRestaurant);
+
+// const copyRestaurant = { ...restaurant };
+// copyRestaurant.name = 'Chillies';
+// console.log(copyRestaurant);
+// console.log(restaurant);
 
 // // DESTRUCTURING OBJECTS
 // const { name, openingHours, categories } = restaurant;
