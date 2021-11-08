@@ -30,46 +30,89 @@ const restaurant = {
       `${this.starterMenu[starterIndex]}, with ${this.mainMenu[mainIndex]}, will be delievered at ${time}, at ${address}`
     );
   },
+
+  orderPasta: function (ing1, ing2, ing3) {
+    console.log(`Here is your pasta with ${ing1}, ${ing2} and ${ing3}`);
+  },
 };
 
-// DESTRUCTURING OBJECTS
-const { name, openingHours, categories } = restaurant;
-console.log(openingHours);
+// Spread Operator
 
-// Change key to a different variable
-const {
-  name: restaurantName,
-  openingHours: hours,
-  categories: tags,
-} = restaurant;
-console.log(restaurantName, hours, tags);
+const arr = [7, 8, 9];
+const badNewArr = [1, 2, arr[0], arr[1], arr[2]];
 
-// Setting defaults if a key doesn't exist
-const { menu = [], starterMenu = [] } = restaurant;
-console.log(menu, starterMenu); // menu will now be an empty array
+const newArr = [1, 2, ...arr];
+console.log(newArr);
 
-// Mutating variables
-let a = 111;
-let b = 999;
-const obj = { a: 23, b: 7, c: 14 };
+const newMenu = [...restaurant.mainMenu, 'Gnocci'];
+console.log(newMenu);
 
-({ a, b } = obj);
-console.log(a, b);
+// Copy array
+const mainMenuCopy = [...restaurant.mainMenu];
+// Join 2 arrays or more
+const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
 
-// Nested Objects
-const {
-  // fri is an object, so use same syntax
-  fri: { open, close },
-} = openingHours;
-console.log(open, close);
+// Works on all iterables
+const str = 'iterable';
+console.log(...str);
 
-// Calling objects in a function parameter
-restaurant.orderDelivery({
-  time: '22:30',
-  address: 'Via del Sole, 21',
-  mainIndex: 2,
-  starterIndex: 2,
-});
+// Real-world example
+const ingredients = [
+  prompt("Let's make some pasta! Ingredient 1?"),
+  prompt('Ingredient 2?'),
+  prompt('Ingredient 3?'),
+];
+restaurant.orderPasta(...ingredients);
+
+// Spread operator on Objects
+// Add a founder key to the Object as well when it was opened
+// Order does not matter
+const newRestaurant = { foundedIn: '1997', ...restaurant, founder: 'Guiseppe' };
+console.log(newRestaurant);
+
+const copyRestaurant = { ...restaurant };
+copyRestaurant.name = 'Chillies';
+console.log(copyRestaurant);
+console.log(restaurant);
+
+// // DESTRUCTURING OBJECTS
+// const { name, openingHours, categories } = restaurant;
+// console.log(openingHours);
+
+// // Change key to a different variable
+// const {
+//   name: restaurantName,
+//   openingHours: hours,
+//   categories: tags,
+// } = restaurant;
+// console.log(restaurantName, hours, tags);
+
+// // Setting defaults if a key doesn't exist
+// const { menu = [], starterMenu = [] } = restaurant;
+// console.log(menu, starterMenu); // menu will now be an empty array
+
+// // Mutating variables
+// let a = 111;
+// let b = 999;
+// const obj = { a: 23, b: 7, c: 14 };
+
+// ({ a, b } = obj);
+// console.log(a, b);
+
+// // Nested Objects
+// const {
+//   // fri is an object, so use same syntax
+//   fri: { open, close },
+// } = openingHours;
+// console.log(open, close);
+
+// // Calling objects in a function parameter
+// restaurant.orderDelivery({
+//   time: '22:30',
+//   address: 'Via del Sole, 21',
+//   mainIndex: 2,
+//   starterIndex: 2,
+// });
 // // DESTRUCTURING ARRAYS
 // const arr = [2, 3, 4];
 // const [x, y, z] = arr;
